@@ -1,0 +1,20 @@
+<div>
+  <button routerLink="add">ADD EMPLOYEE</button>
+  <router-outlet></router-outlet>
+  <table>
+    <tr>
+      <th>EMP_ID</th>
+      <th>EMP_FNAME</th>
+      <th>EMP_LNAME</th>
+      <th>EDIT</th>
+      <th>DELETE</th>
+    </tr>
+    <tr *ngFor="let emp of employeeFacade.empList$ | async">
+      <th>{{ emp.id }}</th>
+      <th>{{ emp.fname }}</th>
+      <th>{{ emp.lname }}</th>
+      <th><button routerLink="edit">EDIT</button></th>
+      <th><button>DELETE</button></th>
+    </tr>
+  </table>
+</div>

@@ -1,18 +1,39 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmpListComponent } from './Comnponent/emp-list/emp-list.component';
+import { EmpAddComponent } from './Comnponent/emp-add/emp-add.component';
+import { EmpEditComponent } from './Comnponent/emp-edit/emp-edit.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { employeeReducer } from './store/emp.reducer';
+import { EmployeeFacade } from './store/emp.facade';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmpListComponent,
+    EmpAddComponent,
+    EmpEditComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({ employee: employeeReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: false,
+    }),
+    FormsModule,
+    ReactiveFormsModule,
+    EffectsModule.forRoot([]),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [EmployeeFacade],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
