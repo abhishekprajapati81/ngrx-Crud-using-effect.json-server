@@ -10,9 +10,8 @@ import { EmployeeFacade } from 'src/app/store/emp.facade';
 export class EmpListComponent implements OnInit {
   employeeFacade = inject(EmployeeFacade);
   employee!: any;
-  constructor(private httpService: HttpService) {}
+  constructor() {}
   ngOnInit(): void {
     this.employeeFacade.getAllEmployeeData();
   }
-  // onEdit() {}
 }

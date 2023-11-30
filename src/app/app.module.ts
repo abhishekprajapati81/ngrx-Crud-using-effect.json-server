@@ -12,6 +12,7 @@ import { EmployeeFacade } from './store/emp.facade';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
+import { employeeEffect } from './store/emp.effect';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { EffectsModule } from '@ngrx/effects';
     }),
     FormsModule,
     ReactiveFormsModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([employeeEffect]),
   ],
   providers: [EmployeeFacade],
   bootstrap: [AppComponent],

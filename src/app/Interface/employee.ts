@@ -1,5 +1,5 @@
 export interface Empolyee {
-  id: number;
+  id?: number;
   fname: string;
   lname: string;
 }

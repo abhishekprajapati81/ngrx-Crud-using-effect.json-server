@@ -1,11 +1,11 @@
-<form [formGroup]="newEmp">
+<form [formGroup]="myForm">
   <br />
   <label for="fname">FName</label>
-  <input type="text" />
+  <input type="text" formControlName="fname" />
   <br />
   <br />
   <label for="lname">LName</label>
-  <input type="text" />
+  <input type="text" formControlName="lname" />
   <br />
-  <button>ADD</button>
+  <button (click)="onAdd(myForm.value)">ADD</button>
 </form>
